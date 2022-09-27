@@ -1,60 +1,50 @@
 # Java-verifier-in-Java
 
-=============================
-=      File description     =
-=============================
+## File description 
 
-Sjavac.java - abstract class contain the main function that validate the given file.
-RegexTool.java - abstract class contain all the relevant regex (compiled) for the Sjava file process.
-FileProcessor.java - abstract class implements the processing of Sjava file.
-SemiColonProcessor.java - abstract class implements the processing of line ends with semicolomn in Sjava file.
-Scope.java - abstract class that represent a scope in the Sjava file.
-ScopeFactory.java - implements factory of scopes.
-Global.java - Represent the global scope in the Sjava file.
-Condition.java - Represent a Condition scope in the Sjava file.
-Method.java - Represent a Method scope in the Sjava file.
-Variable.java - implement a variable in the Sjava file.
-VariablesFactory.java - factory of variable, create variable according given type.
-ValueValidator.java - interface used to differentiate the value validating between the type.
-BooleanValueValidator.java - implements the ValueValidator interface for validate value of type boolean.
-CharValueValidator.java - implements the ValueValidator interface for validate value of type char.
-DoubleValueValidator.java - implements the ValueValidator interface for validate value of type double.
-IntValueValidator.java - implements the ValueValidator interface for validate value of type int.
-StringValueValidator.java - implements the ValueValidator interface for validate value of type String.
-NameTypeException.java - implements the ValueValidator interface for validate value of type boolean.
-StringValueValidator.java - implements the ValueValidator interface for validate value of type boolean.
-UsageException.java - Exception thrown with error message to declare usage error, error handled by printing 2
-                      at the end.
-IllegalCodeException.java - Super class for all exception that should end with printing 1 at the end of the
-                            program.
-ValueOfVariableException.java - thrown when trying to create new variable failed abd the value can be other
-                                variable.
-MisMatchOpenCloseBracketsException.java - thrown when there is mismatch with the number of open and closed
-                                          bracket.
-SyntaxException.java - thrown when there is there is line with invalid syntax.
-DuplicateMethodNameException.java - thrown when detected that more than one method declared with the same name.
-DuplicateVariableDeclarationException.java - thrown when detected that more than one variable in the same
-                                             scope declared with the same name.
-InvalidVariableForConditionException.java - thrown when variable in condition is invalid to appear in
-                                            condition line.
-MethodCallInGlobalException.java - thrown if method called in the global scope.
-ReturnInGlobalException.java - thrown if return line appeared in the global scope.
-UnknownVariableNameException.java - thrown when trying to get a undeclared variable.
-ChangeFinalVariableException.java - thrown when trying to assign new value to variable that declared final.
-NameTypeException.java - thrown when declaring a variable with invalid type name.
-ValueTypeException.java - thrown when trying to create new variable failed because the value didn't match to
-                          the type
-VariableNameFormatException.java - thrown when trying to create new variable failed because the name if the
-                                   variable is invalid variable name.
 
-=============================
-=          Design           =
-=============================
+#### Sjavac.java - abstract class contain the main function that validate the given file.
+#### RegexTool.java - abstract class contain all the relevant regex (compiled) for the Sjava file process.
+#### FileProcessor.java - abstract class implements the processing of Sjava file.
+#### SemiColonProcessor.java - abstract class implements the processing of line ends with semicolomn in Sjava file.
+#### Scope.java - abstract class that represent a scope in the Sjava file.
+#### ScopeFactory.java - implements factory of scopes.
+#### Global.java - Represent the global scope in the Sjava file.
+#### Condition.java - Represent a Condition scope in the Sjava file.
+#### Method.java - Represent a Method scope in the Sjava file.
+#### Variable.java - implement a variable in the Sjava file.
+#### VariablesFactory.java - factory of variable, create variable according given type.
+#### ValueValidator.java - interface used to differentiate the value validating between the type.
+#### BooleanValueValidator.java - implements the ValueValidator interface for validate value of type boolean.
+#### CharValueValidator.java - implements the ValueValidator interface for validate value of type char.
+#### DoubleValueValidator.java - implements the ValueValidator interface for validate value of type double.
+#### IntValueValidator.java - implements the ValueValidator interface for validate value of type int.
+#### StringValueValidator.java - implements the ValueValidator interface for validate value of type String.
+#### NameTypeException.java - implements the ValueValidator interface for validate value of type boolean.
+#### StringValueValidator.java - implements the ValueValidator interface for validate value of type boolean.
+#### UsageException.java - Exception thrown with error message to declare usage error, error handled by printing 2 at the end.
+#### IllegalCodeException.java - Super class for all exception that should end with printing 1 at the end of the program.
+#### ValueOfVariableException.java - thrown when trying to create new variable failed abd the value can be other variable.
+#### MisMatchOpenCloseBracketsException.java - thrown when there is mismatch with the number of open and closed bracket.
+#### SyntaxException.java - thrown when there is there is line with invalid syntax.
+#### DuplicateMethodNameException.java - thrown when detected that more than one method declared with the same name.
+#### DuplicateVariableDeclarationException.java - thrown when detected that more than one variable in the same scope declared with the same name.
+#### InvalidVariableForConditionException.java - thrown when variable in condition is invalid to appear in condition line.
+#### MethodCallInGlobalException.java - thrown if method called in the global scope.
+#### ReturnInGlobalException.java - thrown if return line appeared in the global scope.
+#### UnknownVariableNameException.java - thrown when trying to get a undeclared variable.
+#### ChangeFinalVariableException.java - thrown when trying to assign new value to variable that declared final.
+#### NameTypeException.java - thrown when declaring a variable with invalid type name.
+#### ValueTypeException.java - thrown when trying to create new variable failed because the value didn't match to the type
+#### VariableNameFormatException.java - thrown when trying to create new variable failed because the name if the variable is invalid variable name.
 
-According to the given API:
+## Design
+
+
+#### According to the given API:
 We created the class Sjavac in the package oop.ex6.main with the main program method.
 
-Our implementation:
+### Our implementation:
 package parser:
     We created the parser package and inside it the classes make the file process.
     FileProcessor - abstract class with static methods that make thr process on the file.
@@ -74,9 +64,7 @@ package variables:
     member and delegate methods on it. A Variable object is created by the VariablesFactory with its
     appropriate ValueValidator object (get the object in the constructor).
 
-=============================
-=  Implementation details   =
-=============================
+## Implementation details
 
 In the FileProcessor first processed the global scope to allow the inner scope know all its variable while
 processing them. the global process and the inner method process separated to 2 method.
@@ -98,10 +86,7 @@ variables and to avoid duplication in easily by variable name as key.
 We created several Exceptions to allow in the future add more concrete message if sone exception that shoukd
 end with 1 printing thrown.
 
-
-=============================
-=    Answers to questions   =
-=============================
+## Answers to questions
 
 Question - How would you modify your code to add new types of variables (e.g., float)?
 
